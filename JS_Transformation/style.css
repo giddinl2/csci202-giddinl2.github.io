@@ -1,0 +1,70 @@
+:root {
+    --toggle-size: 100px;
+    --border-size: calc(var(--toggle-size) / 30);
+}
+body {
+    height: 100vh;
+    margin: auto;
+    background-image: linear-gradient(skyblue, white);
+    overflow: hidden;
+}
+.checkbox {
+    display: none;
+}
+.toggle {
+    position: relative;
+    display: inline-block;
+    width: var(--toggle-size);
+    height: var(--toggle-size);
+    background-repeat: no-repeat;
+    /* background-image: linear-gradient(skyblue, white); */
+    border-radius: calc((var(--toggle-size) / 2) + var(--border-size));
+    border: var(--border-size) solid rgba(0, 0, 0, 0);
+    transition: all 0.1s;
+}
+.toggle:after {
+    content: '';
+    background: url("./images/sun.png");
+    background-size: contain;
+    position: absolute;
+    width: var(--toggle-size);
+    height: var(--toggle-size);
+    left: 0px;
+    border: none;
+    transition: all 0.2s;
+}
+.checkbox:checked + .toggle::after {
+    left: calc(100% - var(--toggle-size));
+    background: url("./images/moon.png");
+    background-size: contain;
+}
+.checkbox:checked + .toggle:hover {
+    background-image: linear-gradient(black, midnightblue);
+    border: var(--border-size) solid skyblue;
+}
+.toggle:hover {
+    width: calc(2 * var(--toggle-size));
+    background-image: linear-gradient(skyblue, white);
+    border: var(--border-size) solid midnightblue;
+}
+.slider {
+    display: block;
+    width: max-content;
+    padding-top: var(--toggle-size);
+    padding-left: var(--toggle-size);
+    text-align: center;
+}
+.night {
+    background-image: linear-gradient(black, midnightblue);
+}
+.cloud {
+    position: absolute;
+    width: 164px;
+    height: 96px;
+}
+.night div .cloud {
+    content: url("./images/cloud_night.png");
+}
+.cloud:hover {
+    left: 0px;
+}
