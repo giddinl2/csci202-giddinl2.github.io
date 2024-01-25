@@ -1,5 +1,39 @@
+const text = [
+    "What a nice, clear sky...",
+    "I hope no clouds roll in...",
+]
+var textCount = 0;
+var textChar = 0;
+const text_delay = 100;
+
 function create_clouds() {
-    create_cloud(2000);
+    setTimeout(() => {
+        start_dialogue();
+    }, 3000);
+}
+
+function start_dialogue() {
+    var advance = setInterval(() => {
+        advance_text();
+    }, text_delay);
+    setTimeout(() => {
+        textCount = 1;
+        textChar = 0;
+        setTimeout(() => {
+            textCount = 0;
+            textChar = 0;
+            document.getElementById("dialogue").textContent = "";
+            clearInterval(advance);
+            create_cloud(2000);
+        }, text[1].length * text_delay + 3000);
+    }, text[0].length * text_delay + 3000);
+}
+
+function advance_text() {
+    if (textChar < text[textCount].length) {
+        textChar++;
+    }
+    document.getElementById("dialogue").textContent = text[textCount].substring(0, textChar);
 }
 
 function create_cloud(timer) {

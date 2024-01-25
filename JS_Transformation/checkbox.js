@@ -7,4 +7,11 @@ function toggle() {
     night = checkbox;
     console.log(checkbox);
     body.classList.toggle("night", checkbox);
+    if (night) {
+        var owl = new Audio('./audio/owl.mp3');
+        owl.play();
+    } else {
+        var bird = new Audio('./audio/bird.mp3');
+        bird.play();
+    }
 }

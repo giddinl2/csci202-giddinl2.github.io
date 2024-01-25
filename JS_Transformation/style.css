@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 :root {
     --toggle-size: 100px;
     --border-size: calc(var(--toggle-size) / 30);
@@ -67,4 +68,16 @@ body {
 }
 .cloud:hover {
     left: 0px;
+}
+h1 {
+    font-family: "Roboto", sans-serif;
+    left: 0;
+    right: 0;
+    bottom: calc(var(--toggle-size) / 2);
+    position: absolute;
+    text-align: center;
+    margin: auto;
+}
+.night h1 {
+    color: white;
 }
