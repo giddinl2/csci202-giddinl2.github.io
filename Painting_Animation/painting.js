@@ -7,7 +7,7 @@ const static = (sketch) => {
         sketch.background(210, 200, 190);
         sketch.noStroke();
         sketch.fill(160, 165, 170);
-        sketch.triangle(0, 0, 220, 0, 0, 220);
+        sketch.triangle(0, 0, 210, 0, 0, 210);
         sketch.fill(40, 35, 35);
         sketch.triangle(250, -40, 250, 640, -90, 300);
         sketch.fill(205, 165, 65);
@@ -39,7 +39,7 @@ const dynamic = (sketch) => {
         sketch.noStroke();
         if (strokeCount > 0) {
             sketch.fill(160, 165, 170);
-            sketch.triangle(0, 0, 220, 0, 0, 220);
+            sketch.triangle(0, 0, 210, 0, 0, 210);
         }
         if (strokeCount > 1) {
             sketch.fill(40, 35, 35);
