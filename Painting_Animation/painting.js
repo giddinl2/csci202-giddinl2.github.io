@@ -18,6 +18,7 @@ const static = (sketch) => {
         sketch.triangle(320, 0, 480, 160, 640, 0);
         sketch.fill(170, 175, 180);
         sketch.triangle(250, 390, 500, 640, 250, 640);
+        sketch.describe('Theo van Doesburg, Counter composition XIII, 1929');
     }
 }
 
@@ -61,6 +62,7 @@ const dynamic = (sketch) => {
             sketch.fill(170, 175, 180);
             sketch.triangle(250, 390, 500, 640, 250, 640);
         }
+        sketch.describe('Theo van Doesburg, Counter composition XIII, 1929');
     }
 }
 
