@@ -43,11 +43,7 @@ function create_cloud(timer) {
     var multiplier = 1;
     if (night) {
         multiplier = 1.5;
-    }
-    if (night) {
         vSpeed /= multiplier;
-    }
-    if (night) {
         vPos *= multiplier;
     }
     var cloud = document.createElement("img");

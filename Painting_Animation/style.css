@@ -1,0 +1,10 @@
+body {
+    background-color: black;
+    margin: 10px;
+}
+.p5Canvas {
+    margin: 10px;
+}
+#dynamicCanvas {
+    float: right;
+}
