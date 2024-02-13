@@ -11,13 +11,26 @@ async function fetchJSON() {
     const names = json.people
     console.log(json);
     for (var i = 0; i < json.number; i++) {
+        const image_response = await fetch(`https://en.wikipedia.org/w/api.php?action=query&titles=${json.people[i].name}&prop=pageimages&origin=*&format=json&pithumbsize=100`,
+            { method: "GET" }
+        );
+        const image_json = await image_response.json();
+        const pages = image_json.query.pages;
+
         const element = document.createElement("div");
+
         const nameText = document.createElement("p");
         nameText.innerText = json.people[i].name;
         element.appendChild(nameText);
+        
+        const image = document.createElement("img");
+        image.src = pages[Object.keys(pages)[0]].thumbnail.source;
+        element.appendChild(image);
+
         const craftText = document.createElement("p");
         craftText.innerText = "Aboard the " + json.people[i].craft;
         element.appendChild(craftText);
+
         element.id = json.people[i].name;
         element.onclick = function() {
             openNewWindow("https://en.wikipedia.org/wiki/" + element.id);
