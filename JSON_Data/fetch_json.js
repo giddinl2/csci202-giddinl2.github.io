@@ -4,7 +4,7 @@ async function fetchJSON() {
     const apod_response = await fetch("https://api.nasa.gov/planetary/apod?api_key=XUVgHcnJW5PdskFDTjtfGjmucqsHbcpRFQFcb9fb");
     const apod_json = await apod_response.json()
     document.body.style.backgroundImage = `url(${apod_json.hdurl})`
-    document.getElementById("copyright").innerText = "Image Credit via APOD: " + (apod_json.copyright).replace(/[\r\n]/gm, '');
+    if (apod_json.copyright !== undefined) document.getElementById("copyright").innerText = "Image Credit via APOD: " + (apod_json.copyright).replace(/[\r\n]/gm, '');
 
     const response = await fetch("http://api.open-notify.org/astros.json");
     const json = await response.json();
