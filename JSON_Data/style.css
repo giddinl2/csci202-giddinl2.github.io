@@ -19,22 +19,27 @@ body {
     align-items: center;
     margin: 0;
 }
+h1, h2 {
+    margin: 1rem 0;
+    text-shadow: 0px 0px 0.5em black;
+}
 h1, h2, h3, h4, h5, h6 {
     text-align: center;
     color: lightyellow;
-    margin: 1rem 0;
-    text-shadow: 0px 0px 0.5em black;
 }
 p {
     margin: 0;
     color: lightyellow;
     font-size: large;
 }
+#astronauts div h2 {
+    margin: 0;
+}
 #astronauts div {
     width: 20%;
-    min-width: 15rem;
+    min-width: 16rem;
     margin: 1rem;
-    height: 15rem;
+    height: 16rem;
     display: flex;
     flex-direction: column;
     justify-content: center;

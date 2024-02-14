@@ -20,7 +20,7 @@ async function fetchJSON() {
 
         const element = document.createElement("div");
 
-        const nameText = document.createElement("p");
+        const nameText = document.createElement("h2");
         nameText.innerText = json.people[i].name;
         element.appendChild(nameText);
         
@@ -31,7 +31,7 @@ async function fetchJSON() {
         }
 
         const craftText = document.createElement("p");
-        craftText.innerText = "Aboard the " + json.people[i].craft;
+        craftText.innerText = "Aboard " + json.people[i].craft;
         element.appendChild(craftText);
 
         element.id = json.people[i].name;
