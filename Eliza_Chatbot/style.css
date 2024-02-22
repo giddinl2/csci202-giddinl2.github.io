@@ -1,0 +1,17 @@
+* {
+    font-family: "Gloria Hallelujah", cursive;
+    font-weight: 400;
+    font-style: normal;
+    border-radius: 0.5rem;
+}
+body {
+    background-image: url('./parchment-background.jpg');
+}
+h3 {
+    font-size: xx-large;
+    font-weight: bolder;
+    margin: 1rem 0;
+}
+textarea {
+    resize: none;
+}

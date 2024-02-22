@@ -3,7 +3,10 @@
 	<TITLE>Eliza (elizabot.js)</TITLE>
 	<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript" SRC="elizabot.js"></SCRIPT>
 	<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript" SRC="elizadata.js"></SCRIPT>
-
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
 <SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
 <!--
 
@@ -11,7 +14,7 @@ var eliza = new ElizaBot();
 var elizaLines = new Array();
 
 var displayCols = 60;
-var displayRows = 20;
+var displayRows = 11;
 
 function elizaReset() {
 	eliza.reset();
@@ -30,7 +33,7 @@ async function elizaStep() {
 	}
 	else if (userinput != '') {
 		var usr = 'YOU:   ' + userinput;
-		var rpl ='ELIZA: ' + await eliza.transform(userinput);
+		var rpl ='POLLY: ' + await eliza.transform(userinput);
 		elizaLines.push(usr);
 		elizaLines.push(rpl);
 		// display nicely
@@ -47,7 +50,7 @@ async function elizaStep() {
 	}
 	else if (elizaLines.length == 0) {
 		// no input and no saved lines -> output initial
-		var initial = 'ELIZA: ' + eliza.getInitial();
+		var initial = 'POLLY: ' + eliza.getInitial();
 		elizaLines.push(initial);
 		f.e_display.value = initial + '\n';
 	}
@@ -63,12 +66,12 @@ async function elizaStep() {
 
 <CENTER>
 <P>&nbsp;</P>
-<H3>Eliza</H3>
+<H3>Polly</H3>
 <TABLE BORDER="0" CELLSPACING="10" CELLPADDING="0">
 <FORM NAME="e_form" onsubmit="elizaStep();return false">
-<TR><TD COLSPAN="2"><TEXTAREA NAME="e_display" COLS="60" ROWS="20"></TEXTAREA></TD></TR>
+<TR><TD COLSPAN="2"><TEXTAREA NAME="e_display" COLS="60" ROWS="10" readonly></TEXTAREA></TD></TR>
 <TR VALIGN="middle">
-	<TD><INPUT TYPE="text" NAME="e_input" SIZE="50"></TD>
+	<TD><INPUT TYPE="text" NAME="e_input" SIZE="55"></TD>
 	<TD ALIGN="right"><INPUT TYPE="submit" VALUE="&nbsp;Talk&nbsp;"> <INPUT TYPE="reset" VALUE="Reset" onClick="window.setTimeout('elizaReset()',100)"></TD>
 </TR>
 </FORM>

@@ -199,7 +199,7 @@ ElizaBot.prototype._sortKeywords = function(a,b) {
 	else return 0;
 }
 
-ElizaBot.prototype.transform = async function(text) {
+ElizaBot.prototype.transform = function(text) {
 	var rpl='';
 	this.quit=false;
 	// unify text string
@@ -252,15 +252,6 @@ ElizaBot.prototype.transform = async function(text) {
 		if (k>=0) rpl=this._execRule(k);
 	}
 	// return reply or default string
-	if (rpl != '') {
-		try {
-			const pirate_reply = await fetch(`https://pirate.monkeyness.com/api/translate?english=${rpl}`);
-			console.log(pirate_reply);
-		}
-		catch {
-
-		}
-	}
 	return (rpl!='')? rpl : 'I am at a loss for words.';
 }
 
