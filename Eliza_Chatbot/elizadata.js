@@ -106,7 +106,7 @@ var elizaKeywords = [
     //  "Tell me more about that.",
     //  "Does talking about this bother you ?"
     "I be nah sure I understand ye fully.",
-    "Please go on.",
+    // "Please go on.",
     "Wha' does that suggest t' ye ?",
     "Do ye feel strongly about discussin' such things ?",
     "That be interestin'. Please continue.",
