@@ -1,0 +1,83 @@
+html {
+    height: 100%;
+    --wwu-dark-blue: #002f5e;
+    --wwu-light-blue: #63c2ff;
+}
+body {
+    height: 100%;
+    background-color: var(--wwu-dark-blue);
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    color: white;
+}
+.col {
+    background-color: #003f87;
+    box-shadow: 0px 0px 5px 1px black;
+    padding: 0px;
+    margin: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.found {
+    background-color: #007ac8;
+    box-shadow: 0px 0px 5px 1px var(--wwu-light-blue);
+    cursor: pointer;
+}
+.col img {
+    max-height: 10em;
+    filter: blur(0.5rem);
+    box-shadow: 0px 0px 5px 1px black;
+}
+.found img {
+    filter: none;
+}
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #bad80a;
+    margin: 20px 0;
+}
+p, label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.2em;
+}
+p {
+    padding: 0.5em 0em;
+    margin: 0px;
+}
+#sculpture {
+    width: 90%;
+    margin: 0 auto;
+}
+.progress {
+    position: relative;
+    width: 90%;
+    margin: 10px auto;
+    background-color: #003f87;
+    box-shadow: 0px 0px 5px 1px black;
+}
+.progress-bar {
+    background-color: #007ac8;
+    box-shadow: 0px 0px 5px 1px var(--wwu-light-blue);
+}
+.complete {
+    box-shadow: 0px 0px 5px 1px var(--wwu-light-blue);
+}
+#progress-text {
+    position: absolute;
+    inset: 0;
+    padding: 0.4rem;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+}
+small {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    padding: 5px;
+}
