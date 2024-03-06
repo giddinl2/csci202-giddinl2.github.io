@@ -24,21 +24,33 @@ function guessSculpture(event) {
         var input = document.getElementById("sculpture");
         var guess = input.value.toLowerCase();
         const sculptures = document.getElementsByClassName("col");
+        console.log(sculptures.length);
         console.log(guess);
+        var correct = false;
         for (let i = 0; i < sculptures.length; i++) {
             var name = sculptures[i].getAttribute("name");
             var artist = sculptures[i].getAttribute("artist");
-            if (((guess != "untitled" && guess == name.toLowerCase()) || guess == artist.toLowerCase() || guess == "i love sculptures") && localStorage.getItem(name + ", " + artist) == null) {
+            if (((guess != "untitled" && guess == name.toLowerCase()) || guess == artist.toLowerCase() || guess == "i love sculptures")) {
+                correct = true;
                 if (sculptures[i].parentElement.parentElement.classList.contains("hidden")) {
-                    sculptureCount[i].parentElement.parentElement.classList.remove("hidden");
+                    sculptures[i].parentElement.parentElement.classList.remove("hidden");
                 }
                 sculptures[i].scrollIntoView({block:"center", behavior: "smooth"});
-                localStorage.setItem(name + ", " + artist, true);
-                setTimeout(function(s, n, a) { unlockSculpture(s, n, a) }, 100 * Math.floor(i / 2), sculptures[i], name, artist);
+                if (localStorage.getItem(name + ", " + artist) == null) {
+                    localStorage.setItem(name + ", " + artist, true);
+                    setTimeout(function(s, n, a) { unlockSculpture(s, n, a) }, 50 * Math.floor(i / 2), sculptures[i], name, artist);
+                }
             }
-            // console.log(name);
         }
-        input.value = "";
+        input_text = document.getElementById("input-text");
+        if (correct) {
+            input.value = "";
+            input_text.innerHTML = "Input sculpture or artist name";
+            input_text.classList.remove("incorrect");
+        } else {
+            input_text.innerHTML = "No such sculpture or artist exists, try again";
+            input_text.classList.add("incorrect");
+        }
     }
 }
 
@@ -81,6 +93,7 @@ function resetProgress() {
     if (reset) {
         localStorage.clear();
         location.reload();
+        window.scrollTo({ top: 0 });
     } else {
         reset = true;
         button = document.getElementById("reset");
