@@ -25,6 +25,7 @@ body {
     background-color: #007ac8;
     box-shadow: 0px 0px 5px 1px var(--wwu-light-blue);
     cursor: pointer;
+    display: flex;
 }
 .col img {
     max-height: 10em;
@@ -80,4 +81,15 @@ small {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     padding: 5px;
+    margin-bottom: 10px;
+}
+hr {
+    border-top: 2px solid white;
+    box-shadow: 0px 0px 5px 1px black;
+}
+#reset {
+    margin: 10px auto;
+}
+.hidden {
+    display: none;
 }
