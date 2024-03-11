@@ -19,38 +19,43 @@ function onLoad() {
     progress_text.innerText = `${sculptureCount} / ${maxSculptures} sculptures found`;
 }
 
-function guessSculpture(event) {
+function enter(event) {
     if (event.key == "Enter") {
-        var input = document.getElementById("sculpture");
-        var guess = input.value.toLowerCase();
-        const sculptures = document.getElementsByClassName("col");
-        console.log(sculptures.length);
-        console.log(guess);
-        var correct = false;
-        for (let i = 0; i < sculptures.length; i++) {
-            var name = sculptures[i].getAttribute("name");
-            var artist = sculptures[i].getAttribute("artist");
-            if (((guess != "untitled" && guess == name.toLowerCase()) || guess == artist.toLowerCase() || guess == "i love sculptures")) {
-                correct = true;
-                if (sculptures[i].parentElement.parentElement.classList.contains("hidden")) {
-                    sculptures[i].parentElement.parentElement.classList.remove("hidden");
-                }
-                sculptures[i].scrollIntoView({block:"center", behavior: "smooth"});
-                if (localStorage.getItem(name + ", " + artist) == null) {
-                    localStorage.setItem(name + ", " + artist, true);
-                    setTimeout(function(s, n, a) { unlockSculpture(s, n, a) }, 50 * Math.floor(i / 2), sculptures[i], name, artist);
-                }
+        guessSculpture();
+    }
+}
+
+function guessSculpture() {
+    var input = document.getElementById("input");
+    var guess = input.value.toLowerCase().trim();
+    const sculptures = document.getElementsByClassName("col");
+    console.log(sculptures.length);
+    console.log(guess);
+    var correct = false;
+    for (let i = 0; i < sculptures.length; i++) {
+        var name = sculptures[i].getAttribute("name");
+        var artist = sculptures[i].getAttribute("artist");
+        if (((guess != "untitled" && guess == name.toLowerCase()) || guess == artist.toLowerCase() || guess == "i love sculptures")) {
+            correct = true;
+            if (sculptures[i].parentElement.parentElement.classList.contains("hidden")) {
+                sculptures[i].parentElement.parentElement.classList.remove("hidden");
+            }
+            input.blur();
+            sculptures[i].scrollIntoView({block:"end", behavior: "smooth"});
+            if (localStorage.getItem(name + ", " + artist) == null) {
+                localStorage.setItem(name + ", " + artist, true);
+                setTimeout(function(s, n, a) { unlockSculpture(s, n, a) }, 500, sculptures[i], name, artist);
             }
         }
-        input_text = document.getElementById("input-text");
-        if (correct) {
-            input.value = "";
-            input_text.innerHTML = "Input sculpture or artist name";
-            input_text.classList.remove("incorrect");
-        } else {
-            input_text.innerHTML = "No such sculpture or artist exists, try again";
-            input_text.classList.add("incorrect");
-        }
+    }
+    input_text = document.getElementById("input-text");
+    if (correct) {
+        input.value = "";
+        input_text.innerHTML = "Input sculpture or artist name";
+        input_text.classList.remove("incorrect");
+    } else {
+        input_text.innerHTML = "No such sculpture or artist exists, try again";
+        input_text.classList.add("incorrect");
     }
 }
 
@@ -100,5 +105,23 @@ function resetProgress() {
         button.innerText = "Are you sure?"
     }
 }
+
+var stuck = false;
+
+function scroll () {
+    if (!stuck) {
+        if (scrollY > 125) {
+            document.getElementById("sticky").style.boxShadow = "0px 5px 10px -5px black";
+            stuck = true;
+        }
+    } else {
+        if (scrollY < 125){
+            document.getElementById("sticky").style.boxShadow = "none";
+            stuck = false;
+        }
+    }
+}
+
+window.addEventListener("scroll", scroll, false);
 
 document.onload = onLoad();

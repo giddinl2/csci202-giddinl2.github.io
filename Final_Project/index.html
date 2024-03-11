@@ -17,12 +17,18 @@
   <body>
     <h1>The Great WWU Sculpture Hunt</h1>
     <!--<label for="sculpture">Sculpture: </label>-->
-    <input type="text" class="form-control" id="sculpture" autocomplete="off" autocorrect="off" spellcheck="false" onkeydown="guessSculpture(event)">
-    <small class="form-text" id="input-text">Input sculpture or artist name</small>
+    <div id="sticky" class="sticky position-sticky sticky-top">
+        <div class="guess-input">
+            <input type="text" class="form-control" id="input" autocomplete="off" autocorrect="off" spellcheck="false" onkeydown="enter(event)">
+            <button id="guess" type="button" class="btn btn-primary" onclick="guessSculpture()">Guess</button>
+        </div>
+        <small class="form-text" id="input-text">Input sculpture or artist name</small>
+    </div>
     <div class="progress" id="progress" style="height: 2rem">
         <div class="progress-bar" id="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
         <p id="progress-text">0/20 Sculptures Found</p>
     </div>
+    <small>Click on discovered sculptures to learn more!</small>
     <div class="container">
         <!-- <hr> -->
         <h1>South Campus</h1>
@@ -180,7 +186,7 @@
         
     </div>
     <button id="reset" type="button" class="btn btn-danger" onclick="resetProgress()">Reset Progress</button>
-    <small class="form-text">Made by Logan Giddings</small>
+    <small id="footer" class="form-text">Made by Logan Giddings</small>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
