@@ -25,6 +25,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: all 1s;
 }
 .found {
     background-color: #007ac8;
