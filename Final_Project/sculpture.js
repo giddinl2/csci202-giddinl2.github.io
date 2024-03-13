@@ -41,7 +41,7 @@ function guessSculpture() {
                 sculptures[i].parentElement.parentElement.classList.remove("hidden");
             }
             input.blur();
-            sculptures[i].scrollIntoView({block:"end", behavior: "smooth"});
+            sculptures[i].scrollIntoView({block:"center", behavior: "smooth"});
             if (localStorage.getItem(name + ", " + artist) == null) {
                 localStorage.setItem(name + ", " + artist, true);
                 setTimeout(function(s, n, a) { unlockSculpture(s, n, a) }, 500, sculptures[i], name, artist);
@@ -77,12 +77,12 @@ function unlockSculpture(sculpture, name, artist) {
     progress_bar.style = `width: ${percent}%`;
     progress_bar.setAttribute("aria-valuenow", percent);
     progress_text.innerText = `${sculptureCount} / ${maxSculptures} sculptures found`;
-    if (sculptureCount == maxSculptures - 2) {
-        document.getElementById("extra").classList.remove("hidden");
-    }
-    if (sculptureCount == maxSculptures - 1) {
-        document.getElementById("extra-extra").classList.remove("hidden");
-    }
+    // if (sculptureCount == maxSculptures - 2) {
+    //     document.getElementById("extra").classList.remove("hidden");
+    // }
+    // if (sculptureCount == maxSculptures - 1) {
+    //     document.getElementById("extra-extra").classList.remove("hidden");
+    // }
     if (sculptureCount >= maxSculptures) {
         var progress = document.getElementById("progress");
         progress.classList.add("complete");
